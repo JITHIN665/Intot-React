@@ -6,17 +6,20 @@ const User = require("../models/userModel");
 
 router.route("/create").post((req, res) => {
   const firstname = req.body.firstname;
-  const lastname = req.body.lastname;
+  const email = req.body.email;
   const mobile = req.body.mobile;
+  const password = req.body.password;
   const message = req.body.message;
   const newUser = new User({
     firstname,
-    lastname,
+    email,
     mobile,
+    password,
     message,
   });
   newUser.save();
 })
+
 
 
 module.exports = router;

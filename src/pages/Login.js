@@ -1,6 +1,7 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
-function Users() {
+function Login() {
   return (
     <div>
     <section className="colored-section">
@@ -44,26 +45,40 @@ function Users() {
 </div>
 </section>
 {/* Users Data */}
-<section className="Users-info">
- 
-         <div className="container">
-            <h2>Users</h2>
-              <div className="row deck">
-                <div className="col-md-4">
-                  <div className="card">
-                    <img src="assets/images/card-img-1.png" alt="card1" />
-                    <h5 className="card-text">10 YEARS EXPERIENCE</h5>
-                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-                  </div>
-                  <div>
-                    <a className="new-btn" href>Read More</a>
-                  </div>
-                </div>
-            
-              </div>
-        </div>
-
+<section id="contact">
+<div className="container-consult">
+<h5>Welocme Back</h5>
+<h2>LOGIN TO THE FUTURE</h2>
+</div>
+<div className="contact-content">
+<div className="row">
+<div className="col-lg-6">
+{/* form start */}
+<div className="container">
+  <form action="#">
+    <label htmlFor="lname">Email</label>
+    <input  type="email" id="email"  name="email" autoComplete="off" className="form-control" />
+    {/* <label htmlFor="lname">Phone Number</label>
+    <input  type="text" id="mobile"  name="mobile"   autoComplete="off" className="form-control"/> */}
+    <label htmlFor="lname">Password</label>
+    <input  type="password" id="password"  name="password"   autoComplete="off" className="form-control"/>
+    <button  className="Reg-btn" type="submit">Login</button>
+  </form>
+  <p><br />
+              If you doesn't have an account then <Link to= "/Register">Register
+              </Link>    <br />
+              <a href="/">Terms and Condition</a> and <a href="/">Policy Privacy</a>
+          </p>
+</div>
+{/* form end*/}
+</div>
+<div className="col-lg-6">
+<img src="assets/images/form-img.png" className="contact-image" alt="Img" />
+</div>
+</div>
+</div>
 </section>
+{/* info section */}
 {/* End Users */}
 {/* footer */}
 <section className="footer">
@@ -80,4 +95,4 @@ function Users() {
 }
 
 
-export default Users;
+export default Login;

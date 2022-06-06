@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 function Register(){
   const [input, setInput]=useState({
     firstname:"",
-    lastname:"",
+    email:"",
     mobile:"",
+    password:"",
     message:"",
 
   });
@@ -19,19 +21,21 @@ function Register(){
         [name]: value,
       };
 
-    })
-  }
+      })
+    }
 function handleClick(event){
-  event.preventDefault();
+  // event.preventDefault();
   const newUser={
     firstname: input.firstname,
-    lastname: input.lastname,
+    email: input.email,
     mobile: input.mobile,
+    password: input.password,
     message: input.message,
   }
   
 
   axios.post("http://localhost:3001/create",newUser)
+
 }
 
   return(
@@ -89,15 +93,24 @@ function handleClick(event){
   <form action="#">
     <label htmlFor="fname">Name</label>
     <input onChange={ handleChange } type="text" id="fname"  name="firstname" value={input.firstname}  autoComplete="off"  className="form-control"/>
-    <label htmlFor="lname">Lastname</label>
-    <input onChange={ handleChange } type="text" id="lname"  name="lastname" value={input.lastname} autoComplete="off" className="form-control" />
+    <label htmlFor="lname">Email</label>
+    <input onChange={ handleChange } type="email" id="email"  name="email" value={input.email} autoComplete="off" className="form-control" />
     <label htmlFor="lname">Phone Number</label>
     <input onChange={ handleChange } type="text" id="mobile"  name="mobile" value={input.mobile}  autoComplete="off" className="form-control"/>
+    <label htmlFor="lname">Password</label>
+    <input onChange={ handleChange } type="password" id="password"  name="password" value={input.password}  autoComplete="off" className="form-control"/>
     <label htmlFor="subject">Message</label>
     <input onChange={ handleChange } type="text" id="message"  name="message" value={input.message}  autoComplete="off" className="form-control"/>
     <button onClick={ handleClick } className="Reg-btn" type="submit">Register</button>
 
   </form>
+  <p><br />
+              By clicking the Register button,you agree to our <br />
+              <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
+        
+              Already have an account?<Link to= "/Login" style={{textDecoration:"none",paddingLeft:"10px"}}>Login
+                                            </Link>
+          </p>
 </div>
 {/* form end*/}
 </div>
@@ -240,3 +253,5 @@ function handleClick(event){
 }
 
 export default Register;
+
+

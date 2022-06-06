@@ -2,7 +2,7 @@ import Home from "./pages/home";
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 import './App.css';
 import Register from "./pages/Register";
-import Users from "./pages/Users";
+import Login from "./pages/Login";
 
 function App() {
   return(
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home/>}></Route>
         <Route path="/Register" element={<Register/>}></Route>
-        <Route path="/Users" element={<Users/>}></Route>
+        <Route path="/Login" element={<Login/>}></Route>
       </Routes>
     </Router>
 
@@ -21,3 +21,6 @@ function App() {
 }
 
 export default App;
+
+
+

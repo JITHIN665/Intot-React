@@ -112,7 +112,7 @@ class Footer extends React.Component{
                           <img src="assets/images/linkedin1.png" alt="" />
                         </a>
                         <a href>
-                          <img src="images/instagram1.png" alt="" />
+                          <img src="assets/images/instagram1.png" alt="" />
                         </a>
                       </div>
                     </div>
