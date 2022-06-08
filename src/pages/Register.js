@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
 function Register(){
   const [input, setInput]=useState({
@@ -24,7 +25,7 @@ function Register(){
       })
     }
 function handleClick(event){
-  // event.preventDefault();
+  event.preventDefault();
   const newUser={
     firstname: input.firstname,
     email: input.email,
@@ -32,11 +33,12 @@ function handleClick(event){
     password: input.password,
     message: input.message,
   }
+  // Navigate("/Login")
   
-
   axios.post("http://localhost:3001/create",newUser)
 
 }
+// let Navigate=useNavigate();
 
   return(
     <div>
@@ -89,10 +91,11 @@ function handleClick(event){
 <div className="row">
 <div className="col-lg-6">
 {/* form start */}
+
 <div className="container">
   <form action="#">
     <label htmlFor="fname">Name</label>
-    <input onChange={ handleChange } type="text" id="fname"  name="firstname" value={input.firstname}  autoComplete="off"  className="form-control"/>
+    <input onChange={ handleChange } type="text" id="fname"  name="firstname" value={input.firstname}  autoComplete="off"  className="form-control" />
     <label htmlFor="lname">Email</label>
     <input onChange={ handleChange } type="email" id="email"  name="email" value={input.email} autoComplete="off" className="form-control" />
     <label htmlFor="lname">Phone Number</label>

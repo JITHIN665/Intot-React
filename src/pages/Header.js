@@ -14,7 +14,7 @@ class Header extends React.Component{
                   <div className=" navbar-collapse  ">
                     <ul className="navbar-nav ml-auto d-none d-lg-flex ml-auto ">
                       <li className="nav-item ">
-                      <Link className="Link" to="/Users" > <span className="p-4"><img src="assets/images/login.png" alt="signup"></img></span>Login</Link>
+                      <Link className="Link" to="/Login" > <span className="p-4"><img src="assets/images/login.png" alt="signup"></img></span>Login</Link>
                       </li>
                       <li className="nav-item">
                       <Link className="Link" to="/Register"  > <span className="p-4"><img src="assets/images/signup.png" alt="signup"></img></span>Sign Up</Link>

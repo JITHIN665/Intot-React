@@ -1,7 +1,45 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
+import axios from "axios";
+import {useState} from "react";
 
 function Login() {
+  const [input, setInput]=useState({
+    email:"",
+    password:"",
+
+  });
+
+   function handleChange(event) {
+   const {name, value} = event.target;
+
+    setInput(prevInput => {
+      return {
+        ...prevInput,
+        [name]: value,
+      };
+
+      })
+    }
+function handleClick(event){
+  event.preventDefault();
+  const newUser={
+    email: input.email,
+    password: input.password,
+  
+  }
+  
+
+  axios.post("http://localhost:3001/login",newUser)
+
+}
+
+
+
+
+
+
+
   return (
     <div>
     <section className="colored-section">
@@ -57,12 +95,13 @@ function Login() {
 <div className="container">
   <form action="#">
     <label htmlFor="lname">Email</label>
-    <input  type="email" id="email"  name="email" autoComplete="off" className="form-control" />
+    <input onChange={ handleChange } type="email" id="email"  name="email" value={input.email} autoComplete="off" className="form-control" />
     {/* <label htmlFor="lname">Phone Number</label>
     <input  type="text" id="mobile"  name="mobile"   autoComplete="off" className="form-control"/> */}
     <label htmlFor="lname">Password</label>
-    <input  type="password" id="password"  name="password"   autoComplete="off" className="form-control"/>
-    <button  className="Reg-btn" type="submit">Login</button>
+    <input onChange={ handleChange } type="password" id="password"  name="password" value={input.password}  autoComplete="off" className="form-control"/>
+     <button onClick={ handleClick } className="Reg-btn" type="submit">Register</button>
+
   </form>
   <p><br />
               If you doesn't have an account then <Link to= "/Register">Register

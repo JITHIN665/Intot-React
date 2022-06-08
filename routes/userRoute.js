@@ -20,6 +20,19 @@ router.route("/create").post((req, res) => {
   newUser.save();
 })
 
+// router.route("/login").post(async(req,res) =>{
+//   const data = await User.find({});
+//  console.log(data);
+//  res.json({data})
+// });
+// Only Single Data//////
+router.route("/login").post(async(req,res) =>{
+  const email =req.body.email;
+  const password =req.body.password;
+ const data=await User.findOne({email,password});
+ console.log(data);
+ res.json({data})
+});
 
 
 module.exports = router;
